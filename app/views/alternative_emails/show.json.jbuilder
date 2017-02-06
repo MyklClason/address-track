@@ -1,0 +1,1 @@
+json.partial! "alternative_emails/alternative_email", alternative_email: @alternative_email
