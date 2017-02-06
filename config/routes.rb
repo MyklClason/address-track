@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :family_members
+  devise_for :users
+  resources :names
+  resources :addresses
+  resources :users
+  resources :friends
+  resources :families
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,1 @@
+json.array! @alternative_emails, partial: 'alternative_emails/alternative_email', as: :alternative_email
