@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170206055120) do
+ActiveRecord::Schema.define(version: 20170206060425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,15 @@ ActiveRecord::Schema.define(version: 20170206055120) do
   end
 
   add_index "families", ["user_id"], name: "index_families_on_user_id", using: :btree
+
+  create_table "family_members", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "family_member_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "family_members", ["user_id"], name: "index_family_members_on_user_id", using: :btree
 
   create_table "friends", force: :cascade do |t|
     t.integer  "user_id"
@@ -88,5 +97,6 @@ ActiveRecord::Schema.define(version: 20170206055120) do
 
   add_foreign_key "alternative_emails", "users"
   add_foreign_key "families", "users"
+  add_foreign_key "family_members", "users"
   add_foreign_key "friends", "users"
 end
