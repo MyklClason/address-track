@@ -18,7 +18,7 @@ class AlternativeEmailsControllerTest < ActionController::TestCase
 
   test "should create alternative_email" do
     assert_difference('AlternativeEmail.count') do
-      post :create, alternative_email: {  }
+      post :create, alternative_email: { email: @alternative_email.email, user_id: @alternative_email.user_id }
     end
 
     assert_redirected_to alternative_email_path(assigns(:alternative_email))
@@ -35,7 +35,7 @@ class AlternativeEmailsControllerTest < ActionController::TestCase
   end
 
   test "should update alternative_email" do
-    patch :update, id: @alternative_email, alternative_email: {  }
+    patch :update, id: @alternative_email, alternative_email: { email: @alternative_email.email, user_id: @alternative_email.user_id }
     assert_redirected_to alternative_email_path(assigns(:alternative_email))
   end
 

@@ -69,6 +69,6 @@ class AlternativeEmailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def alternative_email_params
-      params.fetch(:alternative_email, {})
+      params.require(:alternative_email).permit(:user_id, :email)
     end
 end
